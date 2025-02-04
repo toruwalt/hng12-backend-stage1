@@ -156,11 +156,11 @@ def display_info():
         Returns: data on 200 status, error o 400 status
     """
 
-    number_in = request.args.get('number', type=int)
+    number_in = request.args.get('number')
 
     if type(number_in) != int:
         error = {
-            "number": "alphabet",
+            "number": f'{number_in}',
             "error": True
             }
         return jsonify(error), 400
